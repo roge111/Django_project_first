@@ -39,10 +39,67 @@
 
  ### asgi.py и wsgi.py
 
- Это два похожих друг на друга файла. Используются для подключения к серверу, но asgi можно назвать более новым стандартом. Мы будем работать косвенно. Они нужны.
+ Это два похожих друг на друга файла. Используются для подключения к серверу, но `asgi` можно назвать более новым стандартом. Мы будем работать косвенно. Они нужны.
 
- ### settings.py
+### settings.py
 
- Это очень важный файл, соедржащий все настройки django-проекта.
+Это очень важный файл, содержащий все настройки django-проекта.
+
+```
+BASE_DIR = Path(__file__).resolve().parent.parent
+```
+
+`BASE_DIR` записывает полный путь к проекту.
+
+```
+SECRET_KEY = 'django-insecure-vdst@^bhmn@n+u2*q#9z#^mz^xxko+(-vcit*f36$d!f_8@@tk'```
+
+`SECRET_KEY` — секретный ключ проекта. Его не стоит передавать никому лишнему, иначе проект можно легко взломать. Сейчас я его показываю, поскольку это pet-проект (тренировочный).
+
+
+```
+DEBUG = True``` 
+
+`DEBUG` позволяет регулировать показ ошибок на самом сайте. `True` — все ошибки показываются на сайте.
+
+```
+ALLOWED_HOSTS = []
+
+```
+
+Указываем те `host` или доменные имена, на которые будет разрешено опубликовать данный сайт.
+
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
+`INSTALLED_APPS` — список установленных технологий (приложений) для проекта.
+
+```
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+```
+
+`MIDDLEWARE` — записано промежуточное ПО, обеспечивающее безопасность, работу с сессиями и т. д.
+
+
+`ROOT_URLCONF = 'django_curse.urls'` — основной файл `urls`.
+Тут мы указываем настройки базы данных для соединения.
+
+
 
 
