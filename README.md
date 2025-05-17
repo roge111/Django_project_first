@@ -237,6 +237,39 @@ def index(request):
 
 А теперь запустим и проверим. Запуск описан выше.  Все работает.
 
+### Добалвение нового отслеживания
+
+Давай будем отслеживать переход на страницу about. В файле `urls.py` в `main` добавим `path('about', views.about)` и создади функцуию `about` в `views.py`, которая тоже будет выводит текст, но другой.
+
+`main/urls.py`:
+
+```
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index),
+    path('about', views.about)
+]
+```
+
+`main/views.py`:
+
+```
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def index(request):
+    return HttpResponse('<h4>Error 404<h4>')
+
+def about(request):
+    return HttpResponse('<h4>Привет<h4>')
+```
+
+Сервер в автоматическом режиме будет обновлятся. И теперь открыв главную страницу в адрес напишем `http://127.0.0.1:8000/about` и увидем наш текст `Привет`.
+
+
 
 
 
