@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('<h4>Error 404<h4>')
+    return render(request, 'main/index.html')
 
 def about(request):
-    return HttpResponse('<h4>Привет<h4>')
+    return render(request, 'main/about.html')
